@@ -8,7 +8,7 @@
     <link href="/2020/10/24/%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
     <url>/2020/10/24/%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
     
-    <content type="html"><![CDATA[<h1 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h1><h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><p>判断表达式？表达式 1：表达式 2</p><p>如果判断表达式的运算结果为 false，那么表达式的结果就是 表达式 2；</p><p>如果判断表达式的运算结果为 true，那么表达式的结果就是 表达式 1。</p><hr><p>例如 : let sex = 1&gt;0 ? “男” : “女”</p><p>这条语句的结果返回男,因为表达式结果为真,结果为假则返回女</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h1><h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><p>判断表达式？表达式 1：表达式 2</p><p>如果判断表达式的运算结果为 false，那么表达式的结果就是 表达式 2；</p><p>如果判断表达式的运算结果为 true，那么表达式的结果就是 表达式 1。</p><hr><p>例如 : let sex == 1&gt;0 ? “男” : “女”</p><p>这条语句的结果返回男,因为表达式结果为真,结果为假则返回女</p>]]></content>
     
     
     <categories>
