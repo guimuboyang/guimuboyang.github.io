@@ -17,31 +17,11 @@ $(document).ready(function () {
             search();
         }
     });
-    //播放音乐
-    $(".table_list").on("click", ".play", function () {
-        let indexnum = $(this).index()
-        let idnum = id[indexnum];
-        $.ajax({
-            type: "get",
-            url: 'https://autumnfish.cn/song/url',
-            datatype: "json",
-            data: {
-                id: idnum,
-            },
-            success: function (result) {
-                songurl = result.data[0].url;
-                console.log(songurl);
-                $("audio").attr({ src: songurl });
-
-            }, error: function (e) {
-                console.log(e);
-            }
-        })
-    })
+    //搜索音乐
     function search() {
         $(".table_list").empty();
+        id.splice(0, id.length);//清空数组 
         inputvalue = $(".input").val();
-        console.log(inputvalue);
         if (inputvalue == "") {
             alert("请输入歌手或者歌曲名");
         }
@@ -53,7 +33,6 @@ $(document).ready(function () {
                 keywords: inputvalue,
             },
             success: function (result) {
-                console.log(result);
                 listarr = result.result.songs;
                 for (var i = 0; i < listarr.length; i++) {
                     index = i + 1;
@@ -81,4 +60,24 @@ $(document).ready(function () {
             },
         });
     }
+    //播放音乐
+    $(".table_list").on("click", ".play", function () {
+        var indexnum = $(this).index()
+        var idnum = id[indexnum];
+        $.ajax({
+            type: "get",
+            url: 'https://autumnfish.cn/song/url',
+            datatype: "json",
+            data: {
+                id: idnum,
+            },
+            success: function (result) {
+                songurl = result.data[0].url;
+                $("audio").attr({ src: songurl });
+
+            }, error: function (e) {
+                console.log(e);
+            }
+        })
+    })
 }); 
