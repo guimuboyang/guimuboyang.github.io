@@ -1,1 +1,38 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>blogmusic</title><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><link href=./static/css/app.59ca0c33245dd62826c233358bb941d2.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.30ec1357954224aaf448.js></script><script type=text/javascript src=./static/js/app.111bbc9e67cfe3475559.js></script></body></html>
+<!DOCTYPE html>
+<html lang="Zh-en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>简听</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="container_top">
+        <span class="logo">简听</span>
+        <div class="input_box r">
+          <input type="text" class="input" />
+          <i class="glyphicon glyphicon-search btn"></i>
+        </div>
+      </div>
+      <div class="container_main">
+        <div class="list_box">
+          <table class="table table-hover table_list"></table>
+        </div>
+        <p>
+          tip:回车或者点击按钮搜索歌曲<br />每次搜索三十条相关歌曲,单击播放歌曲
+        </p>
+      </div>
+      <div class="container_foot">
+        <audio src="" controls autoplay></audio>
+      </div>
+    </div>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
