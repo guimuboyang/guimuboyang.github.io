@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="guimu">
   <meta name="keywords" content="">
-  <title>三元运算符 - blog</title>
+  <title>小米商城购物车实现 - blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-24 18:18" pubdate>
-        2020年10月24日 晚上
+      <time datetime="2020-10-27 18:14" pubdate>
+        2020年10月27日 晚上
       </time>
     </span>
   
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      112 字
+      1.7k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      31
        分钟
     </span>
   
@@ -229,15 +229,337 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">三元运算符</h1>
+            <h1 style="display: none">小米商城购物车实现</h1>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h1><h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><p>判断表达式？表达式 1：表达式 2</p>
-<p>如果判断表达式的运算结果为 false，那么表达式的结果就是 表达式 2；</p>
-<p>如果判断表达式的运算结果为 true，那么表达式的结果就是 表达式 1。</p>
-<hr>
-<p>例如 : let sex == 1&gt;0 ? “男” : “女”</p>
-<p>这条语句的结果返回男,因为表达式结果为真,结果为假则返回女</p>
+              <h1 id="小米商城购物车"><a href="#小米商城购物车" class="headerlink" title="小米商城购物车"></a>小米商城购物车</h1><h3 id="由于在练习购物车案例时-实现复选框处于选中状态才进行计算功能时纠结了一段时间-所以写下来巩固一下"><a href="#由于在练习购物车案例时-实现复选框处于选中状态才进行计算功能时纠结了一段时间-所以写下来巩固一下" class="headerlink" title="由于在练习购物车案例时,实现复选框处于选中状态才进行计算功能时纠结了一段时间,所以写下来巩固一下"></a>由于在练习购物车案例时,实现复选框处于选中状态才进行计算功能时纠结了一段时间,所以写下来巩固一下</h3><p>首先贴代码</p>
+<pre><code>function getsum() &#123;
+    let sum = 0;
+    let count = 0;
+    let allcount = 0;
+    //从checkbox出发来找到需要的内容
+    $(&quot;.select:checked&quot;).parent().siblings(&quot;.sumprice&quot;).each(function (i, ele) &#123;
+        sum += parseFloat($(ele).text());
+    &#125;);
+    //赋值给要显示的元素
+    $(&quot;.allsum&quot;).text(sum);
+    $(&quot;.select:checked&quot;).parent().siblings(&quot;.counter&quot;).find(&quot;.input&quot;).each(function (i, ele) &#123;
+        count += parseInt($(ele).val());
+    &#125;);
+    $(&quot;.count&quot;).text(count);
+    $(&quot;.input&quot;).each(function (i, ele) &#123;
+        allcount += parseInt($(ele).val());
+    &#125;)
+    $(&quot;.allcount&quot;).text(allcount);
+&#125;</code></pre>
+<p>通过以上代码就可以实现通过复选框的勾选状态来改变需要计算的商品件数</p>
+<p>以下为源码:</p>
+<p>HTML 部分</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;我的购物车-小米商城&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/main.css&quot; /&gt;
+    &lt;script src=&quot;http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;./js/main.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;shopping_car&quot;&gt;
+    &lt;div class=&quot;list&quot;&gt;
+      &lt;ul&gt;
+        &lt;li class=&quot;list_title&quot;&gt;
+          &lt;div class=&quot;list_title_1&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; class=&quot;allselect&quot; checked=&quot;checked&quot; /&gt;
+            &lt;label for=&quot;allselect&quot;&gt;全选&lt;/label&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;list_title_2&quot;&gt;商品名称&lt;/div&gt;
+          &lt;div class=&quot;list_title_3&quot;&gt;单价&lt;/div&gt;
+          &lt;div class=&quot;list_title_4&quot;&gt;数量&lt;/div&gt;
+          &lt;div class=&quot;list_title_5&quot;&gt;小计&lt;/div&gt;
+          &lt;div class=&quot;list_title_6&quot;&gt;操作&lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;list_goods&quot;&gt;
+          &lt;div class=&quot;list_goods_1&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; class=&quot;select&quot; checked=&quot;checked&quot; /&gt;
+            &lt;img src=&quot;1.jpg&quot; alt=&quot;&quot; class=&quot;img&quot; /&gt;
+          &lt;/div&gt;
+          &lt;div&gt;RedmiBook 14 Ⅱ i5 16G 512G MX350 银色&lt;/div&gt;
+          &lt;div class=&quot;price&quot;&gt;10元&lt;/div&gt;
+          &lt;div class=&quot;counter&quot;&gt;
+            &lt;button class=&quot;btn sub&quot;&gt;-&lt;/button&gt;
+            &lt;input type=&quot;text&quot; class=&quot;input&quot; value=&quot;1&quot; /&gt;
+            &lt;button class=&quot;btn add&quot;&gt;+&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;sumprice&quot;&gt;10元&lt;/div&gt;
+          &lt;div class=&quot;del&quot;&gt;X&lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;list_goods&quot;&gt;
+          &lt;div class=&quot;list_goods_1&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; class=&quot;select&quot; checked=&quot;checked&quot; /&gt;
+            &lt;img src=&quot;1.jpg&quot; alt=&quot;&quot; class=&quot;img&quot; /&gt;
+          &lt;/div&gt;
+          &lt;div&gt;RedmiBook 14 Ⅱ i5 16G 512G MX350 银色&lt;/div&gt;
+          &lt;div class=&quot;price&quot;&gt;20元&lt;/div&gt;
+          &lt;div class=&quot;counter&quot;&gt;
+            &lt;button class=&quot;btn sub&quot;&gt;-&lt;/button&gt;
+            &lt;input type=&quot;text&quot; class=&quot;input&quot; value=&quot;1&quot; /&gt;
+            &lt;button class=&quot;btn add&quot;&gt;+&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;sumprice&quot;&gt;20元&lt;/div&gt;
+          &lt;div class=&quot;del&quot;&gt;X&lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;list_goods&quot;&gt;
+          &lt;div class=&quot;list_goods_1&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; class=&quot;select&quot; checked=&quot;checked&quot; /&gt;
+            &lt;img src=&quot;1.jpg&quot; alt=&quot;&quot; class=&quot;img&quot; /&gt;
+          &lt;/div&gt;
+          &lt;div&gt;RedmiBook 14 Ⅱ i5 16G 512G MX350 银色&lt;/div&gt;
+          &lt;div class=&quot;price&quot;&gt;20元&lt;/div&gt;
+          &lt;div class=&quot;counter&quot;&gt;
+            &lt;button class=&quot;btn sub&quot;&gt;-&lt;/button&gt;
+            &lt;input type=&quot;text&quot; class=&quot;input&quot; value=&quot;1&quot; /&gt;
+            &lt;button class=&quot;btn add&quot;&gt;+&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;sumprice&quot;&gt;20元&lt;/div&gt;
+          &lt;div class=&quot;del&quot;&gt;X&lt;/div&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;result&quot;&gt;
+    &lt;ul class=&quot;list_result&quot;&gt;
+      &lt;li&gt;
+        &lt;div class=&quot;left&quot;&gt;
+          &lt;div&gt;
+            &lt;a href=&quot;&quot;&gt;继续购物&lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            共
+            &lt;span class=&quot;allcount&quot;&gt;1&lt;/span&gt;
+            件商品, 已选择
+            &lt;span class=&quot;count&quot;&gt;1&lt;/span&gt;件商品
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;right&quot;&gt;
+          &lt;span&gt;合计:&lt;/span&gt;
+          &lt;span class=&quot;allsum&quot;&gt;0&lt;/span&gt;
+          &lt;span&gt;元&lt;/span&gt;
+          &lt;button class=&quot;result_btn&quot;&gt;去结算&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>CSS 部分</p>
+<pre><code>* &#123;
+margin: 0;
+padding: 0;
+user-select: none;
+&#125;
+ul,
+a &#123;
+list-style: none;
+text-decoration: none;
+&#125;
+body &#123;
+background-color: #f5f5f5;
+&#125;
+.container &#123;
+width: 100%;
+&#125;
+.shopping_car &#123;
+width: 90%;
+margin: 100px auto;
+background: #fff;
+&#125;
+.shopping_car ul li &#123;
+display: flex;
+justify-content: space-around;
+color: #424242;
+font-size: 14px;
+border-bottom: 1px #e0e0e0 solid;
+&#125;
+.list_title_1 &#123;
+position: relative;
+right: 29px;
+&#125;
+.list_title_2 &#123;
+position: relative;
+right: -80px;
+&#125;
+.list_title_3 &#123;
+position: relative;
+right: -143px;
+&#125;
+.list_title_4 &#123;
+position: relative;
+right: -120px;
+&#125;
+.list_title_5 &#123;
+position: relative;
+left: 100px;
+&#125;
+.list_title_6 &#123;
+position: relative;
+right: -35px;
+&#125;
+.shopping_car ul li div &#123;
+line-height: 80px;
+&#125;
+.list_goods .list_goods_1 &#123;
+display: flex;
+&#125;
+.input &#123;
+width: 30px;
+outline-style: none;
+border: 1px #e0e0e0 solid;
+text-align: center;
+&#125;
+.select &#123;
+position: relative;
+top: 40px;
+&#125;
+.img &#123;
+position: relative;
+left: 70px;
+&#125;
+.btn &#123;
+width: 20px;
+height: 17px;
+outline-style: none;
+border: 1px #e0e0e0 solid;
+&#125;
+/\*结算\*/
+.result &#123;
+width: 90%;
+height: 50px;
+margin: 100px auto;
+background: #fff;
+&#125;
+.list_result .left &#123;
+float: left;
+&#125;
+.list_result .left div &#123;
+float: left;
+line-height: 50px;
+margin-left: 20px;
+color: #757575;
+font-size: 14px;
+&#125;
+.list_result .left span &#123;
+color: #ff6700;
+font-weight: 800;
+&#125;
+.list_result .left a &#123;
+color: #757575;
+&#125;
+.list_result .left a:hover &#123;
+color: #ff6700;
+&#125;
+.list_result .right &#123;
+float: right;
+line-height: 50px;
+color: #ff6700;
+&#125;
+.result_btn &#123;
+width: 200px;
+height: 50px;
+margin-left: 20px;
+outline-style: none;
+background: #ff6700;
+color: #fff;
+font-size: 18px;
+border: none;
+cursor: pointer;
+&#125;
+.result_btn:hover &#123;
+background: #f25807;
+&#125;</code></pre>
+<p>js 部分</p>
+<pre><code>$(document).ready(function () &#123;
+//点击全选所有checkbox都选上
+$(&quot;.allselect&quot;).change(function () &#123;
+$(&quot;.select&quot;).prop(&quot;checked&quot;, $(&quot;.allselect&quot;).prop(&quot;checked&quot;))
+getsum()
+&#125;)
+//取消某个复选框则取消全选 单击全部复选框选择全选
+$(&quot;.select&quot;).click(function () &#123;
+    if ($(&quot;.select:checked&quot;).length == $(&quot;.select&quot;).length) &#123;
+        $(&quot;.allselect&quot;).prop(&quot;checked&quot;, true)
+&#125;
+if ($(&quot;.select:checked&quot;).length !== $(&quot;.select&quot;).length) &#123;
+$(&quot;.allselect&quot;).prop(&quot;checked&quot;, false)
+    &#125;
+    getsum()
+&#125;)
+//点击按钮对数量进行加减
+var num = 0;
+var p_num = 0;
+$(&quot;.add&quot;).click(function () &#123;
+num = $(this).siblings(&quot;.input&quot;).val();
+    num++;
+    $(this).siblings(&quot;.input&quot;).val(num);
+p_num = parseFloat($(this).parent().siblings(&quot;.price&quot;).text());
+    $(this).parent().siblings(&quot;.sumprice&quot;).text(p_num _ num + &quot;元&quot;);
+getsum()
+&#125;)
+$(&quot;.sub&quot;).click(function () &#123;
+    let num = $(this).siblings(&quot;.input&quot;).val();
+num--;
+if (num &lt; 1) &#123;
+num = 1;
+alert(&quot;最少选择一件商品&quot;);
+&#125;
+$(this).siblings(&quot;.input&quot;).val(num);
+    p_num = parseFloat($(this).parent().siblings(&quot;.price&quot;).text());
+\$(this).parent().siblings(&quot;.sumprice&quot;).text(p_num _ num + &quot;元&quot;);
+getsum()
+&#125;)
+$(&quot;.input&quot;).change(function () &#123;
+    num = $(&quot;.input&quot;).val();
+p_num = parseFloat($(this).parent().siblings(&quot;.price&quot;).text());
+    $(this).parent().siblings(&quot;.sumprice&quot;).text(num \* p_num + &quot;元&quot;)
+getsum()
+&#125;)
+//删除商品
+$(&quot;.del&quot;).click(function () &#123;
+    var sure = confirm(&quot;你确定要删除吗?&quot;)
+    if (sure == true) &#123;
+        $(this).parent().empty();
+getsum()
+&#125; else &#123;
+return
+&#125;
+&#125;)
+getsum()
+
+function getsum() &#123;
+    let sum = 0;
+    let count = 0;
+    let allcount = 0;
+    //从checkbox出发来找到需要的内容
+    $(&quot;.select:checked&quot;).parent().siblings(&quot;.sumprice&quot;).each(function (i, ele) &#123;
+        sum += parseFloat($(ele).text());
+    &#125;);
+    $(&quot;.allsum&quot;).text(sum);
+    $(&quot;.select:checked&quot;).parent().siblings(&quot;.counter&quot;).find(&quot;.input&quot;).each(function (i, ele) &#123;
+        count += parseInt($(ele).val());
+    &#125;);
+    $(&quot;.count&quot;).text(count);
+    $(&quot;.input&quot;).each(function (i, ele) &#123;
+        allcount += parseInt($(ele).val());
+    &#125;)
+    $(&quot;.allcount&quot;).text(allcount);
+&#125;
+&#125;)</code></pre>
 
             </div>
             <hr>
@@ -255,7 +577,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/javascript/">javascript</a>
+                      <a class="hover-with-bg" href="/tags/%E8%B4%AD%E7%89%A9%E8%BD%A6/">购物车</a>
                     
                   </div>
                 
@@ -268,18 +590,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/10/27/%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AE%9E%E7%8E%B0/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">小米商城购物车实现</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/24/photo/">
-                        <span class="hidden-mobile">毕业季</span>
+                      <a href="/2020/10/24/%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                        <span class="hidden-mobile">三元运算符</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -298,8 +614,8 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://example.com/2020/10/24/%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6/';
-        this.page.identifier = '/2020/10/24/%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6/';
+        this.page.url = 'http://example.com/2020/10/27/%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AE%9E%E7%8E%B0/';
+        this.page.identifier = '/2020/10/27/%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AE%9E%E7%8E%B0/';
       };
       function loadDisqus() {
         (function () {
@@ -445,7 +761,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "三元运算符&nbsp;",
+        "小米商城购物车实现&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 200,
