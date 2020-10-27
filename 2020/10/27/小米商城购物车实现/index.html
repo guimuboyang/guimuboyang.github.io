@@ -232,7 +232,8 @@
             <h1 style="display: none">小米商城购物车实现</h1>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="小米商城购物车"><a href="#小米商城购物车" class="headerlink" title="小米商城购物车"></a>小米商城购物车</h1><h3 id="由于在练习购物车案例时-实现复选框处于选中状态才进行计算功能时纠结了一段时间-所以写下来巩固一下"><a href="#由于在练习购物车案例时-实现复选框处于选中状态才进行计算功能时纠结了一段时间-所以写下来巩固一下" class="headerlink" title="由于在练习购物车案例时,实现复选框处于选中状态才进行计算功能时纠结了一段时间,所以写下来巩固一下"></a>由于在练习购物车案例时,实现复选框处于选中状态才进行计算功能时纠结了一段时间,所以写下来巩固一下</h3><p>首先贴代码</p>
+              <h1 id="小米商城购物车"><a href="#小米商城购物车" class="headerlink" title="小米商城购物车"></a>小米商城购物车</h1><p>由于在练习购物车案例时,实现复选框处于选中状态才进行计算功能时纠结了一段时间,所以写下来巩固一下</p>
+<p>首先贴代码</p>
 <pre><code>function getsum() &#123;
     let sum = 0;
     let count = 0;
@@ -254,8 +255,7 @@
 &#125;</code></pre>
 <p>通过以上代码就可以实现通过复选框的勾选状态来改变需要计算的商品件数</p>
 <p>以下为源码:</p>
-<p>HTML 部分</p>
-<pre><code>&lt;!DOCTYPE html&gt;
+<h2 id="HTML-部分"><a href="#HTML-部分" class="headerlink" title="HTML 部分"></a>HTML 部分</h2><pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 
 &lt;head&gt;
@@ -358,8 +358,7 @@
 &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-<p>CSS 部分</p>
-<pre><code>* &#123;
+<h2 id="CSS-部分"><a href="#CSS-部分" class="headerlink" title="CSS 部分"></a>CSS 部分</h2><pre><code>* &#123;
 margin: 0;
 padding: 0;
 user-select: none;
@@ -483,8 +482,7 @@ cursor: pointer;
 .result_btn:hover &#123;
 background: #f25807;
 &#125;</code></pre>
-<p>js 部分</p>
-<pre><code>$(document).ready(function () &#123;
+<h2 id="js-部分"><a href="#js-部分" class="headerlink" title="js 部分"></a>js 部分</h2><pre><code>$(document).ready(function () &#123;
 //点击全选所有checkbox都选上
 $(&quot;.allselect&quot;).change(function () &#123;
 $(&quot;.select&quot;).prop(&quot;checked&quot;, $(&quot;.allselect&quot;).prop(&quot;checked&quot;))
@@ -589,6 +587,12 @@ function getsum() &#123;
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2020/10/27/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E6%B3%95/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">清除浮动的四种方法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
