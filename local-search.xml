@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>css实现文本溢出省略号</title>
+    <link href="/2020/10/28/css%E5%AE%9E%E7%8E%B0%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA%E7%9C%81%E7%95%A5%E5%8F%B7/"/>
+    <url>/2020/10/28/css%E5%AE%9E%E7%8E%B0%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA%E7%9C%81%E7%95%A5%E5%8F%B7/</url>
+    
+    <content type="html"><![CDATA[<h3 id="css-实现文本溢出省略号"><a href="#css-实现文本溢出省略号" class="headerlink" title="css 实现文本溢出省略号"></a>css 实现文本溢出省略号</h3><p>先写方法</p><pre><code>p&#123;    white-space:nowarp;/*强制在一行显示,不换行*/    overflow:hidden;/*溢出隐藏*/    text-overflow:ellipsis;/*文本溢出显示省略号*/&#125;</code></pre><p>这是单行文本溢出显示省略号的方法</p><pre><code>p&#123;    overflow:hidden;/*溢出隐藏*/    text-overflow:ellipsis;/*文本溢出显示省略号*/    display:-webkit-box;/*弹性伸缩盒子模型显示*/    -webkit-line-clamp:2;/*限制在一个块级元素内显示的文本行数*/    -webkit-box-orient:vertical;/*设置伸缩盒子模型子元素的排列方式*/&#125;</code></pre><p>这是多行文本溢出显示省略号的方法</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>css创建三角形的方法</title>
+    <link href="/2020/10/28/css%E5%88%9B%E5%BB%BA%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <url>/2020/10/28/css%E5%88%9B%E5%BB%BA%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h3 id="css-创建三角形的方法"><a href="#css-创建三角形的方法" class="headerlink" title="css 创建三角形的方法"></a>css 创建三角形的方法</h3><pre><code>div&#123;height:0;width:0;font-size:0;/*兼容低版本浏览器*/line-height:0;/*兼容低版本浏览器*/border:10px soild transparent /*边框透明*/border-top-color:red;/*设置上边框的颜色*/&#125;</code></pre><p>这样就可以得到一个红色的等腰直角三角形了,三角形的朝向通过设置不同位置的边框获得,三角形的大小通过设置边框的粗细来改变,注意宽高一定要给 0</p><pre><code>div&#123;height:0;width:0;font-size:0;/*兼容低版本浏览器*/line-height:0;/*兼容低版本浏览器*/border:transparent red transparent transparent;border-style:soild;border-width:100px 50px 0 0;&#125;</code></pre><p>得到一个直角三角形</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>清除浮动的四种方法</title>
     <link href="/2020/10/27/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
     <url>/2020/10/27/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E6%B3%95/</url>

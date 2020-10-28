@@ -17,10 +17,23 @@
   <meta name="description" content="">
   <meta name="author" content="guimu">
   <meta name="keywords" content="">
-  <title>blog</title>
+  <title>css实现文本溢出省略号 - blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +56,7 @@
 
 
 <body>
-  <header style="height: 100vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -159,12 +172,53 @@
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-28 18:49" pubdate>
+        2020年10月28日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      155 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      1
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -173,334 +227,124 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/10/28/css%E5%AE%9E%E7%8E%B0%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA%E7%9C%81%E7%95%A5%E5%8F%B7/">css实现文本溢出省略号</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/28/css%E5%AE%9E%E7%8E%B0%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA%E7%9C%81%E7%95%A5%E5%8F%B7/">
-          
-          
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">css实现文本溢出省略号</h1>
             
-          
-          css 实现文本溢出省略号先写方法
-p&#123;
+            <div class="markdown-body" id="post-body">
+              <h3 id="css-实现文本溢出省略号"><a href="#css-实现文本溢出省略号" class="headerlink" title="css 实现文本溢出省略号"></a>css 实现文本溢出省略号</h3><p>先写方法</p>
+<pre><code>p&#123;
     white-space:nowarp;/*强制在一行显示,不换行*/
     overflow:hidden;/*溢出隐藏*/
     text-overflow:ellipsis;/*文本溢出显示省略号*/
-&#125;
-这是单行文本溢出显示省略号的方法
-p&#123;
+&#125;</code></pre>
+<p>这是单行文本溢出显示省略号的方法</p>
+<pre><code>p&#123;
     overflow:hidden;/*溢出隐藏*/
-    
-        </a>
-      </p>
+    text-overflow:ellipsis;/*文本溢出显示省略号*/
+    display:-webkit-box;/*弹性伸缩盒子模型显示*/
+    -webkit-line-clamp:2;/*限制在一个块级元素内显示的文本行数*/
+    -webkit-box-orient:vertical;/*设置伸缩盒子模型子元素的排列方式*/
+&#125;</code></pre>
+<p>这是多行文本溢出显示省略号的方法</p>
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-28 18:49" pubdate>
-              2020-10-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/10/28/css%E5%88%9B%E5%BB%BA%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84%E6%96%B9%E6%B3%95/">css创建三角形的方法</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/28/css%E5%88%9B%E5%BB%BA%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84%E6%96%B9%E6%B3%95/">
-          
-          
-            
-          
-          css 创建三角形的方法div&#123;
-height:0;
-width:0;
-font-size:0;/*兼容低版本浏览器*/
-line-height:0;/*兼容低版本浏览器*/
-border:10px soild transparent /*边框透明*/
-border-top-color:red;/*设置上边框的颜色*/
-&#125;
-这样就可以得到一个红色的等腰直角三角形了,三角形的朝向
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-28 18:40" pubdate>
-              2020-10-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/10/27/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E6%B3%95/">清除浮动的四种方法</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/27/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E6%B3%95/">
-          
-          
-            
-          
-          清除浮动的四种方法1.额外标签法(隔墙法)在最后一个浮动的子元素后面添加一个空的块级元素并且给这个块级元素设置clear:both
-2.给浮动的父元素添加 overflow:hidden3.after 伪元素方法例如:
-.clear:after&#123;
-    content:&quot;&quot;;
-    display:block;
-    height:0;
-    clear:bo
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-27 22:47" pubdate>
-              2020-10-27
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/10/27/%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AE%9E%E7%8E%B0/">小米商城购物车实现</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/27/%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AE%9E%E7%8E%B0/">
-          
-          
-            
-          
-          小米商城购物车由于在练习购物车案例时,实现复选框处于选中状态才进行计算功能时纠结了一段时间,所以写下来巩固一下
-首先贴代码
-function getsum() &#123;
-    let sum = 0;
-    let count = 0;
-    let allcount = 0;
-    //从checkbox出发来找到需要的内容
-    $(&quot;.select:checked&q
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-27 18:14" pubdate>
-              2020-10-27
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%B4%AD%E7%89%A9%E8%BD%A6/">购物车</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/10/24/%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6/">三元运算符</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/24/%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6/">
-          
-          
-            
-          
-          三元运算符语法：判断表达式？表达式 1：表达式 2
-如果判断表达式的运算结果为 false，那么表达式的结果就是 表达式 2；
-如果判断表达式的运算结果为 true，那么表达式的结果就是 表达式 1。
-
-例如 : let sex == 1&gt;0 ? “男” : “女”
-这条语句的结果返回男,因为表达式结果为真,结果为假则返回女
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-24 18:18" pubdate>
-              2020-10-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/javascript/">javascript</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/10/24/photo/">毕业季</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/24/photo/">
-          
-          
-            
-          
-          
-时光
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-24 15:21" pubdate>
-              2020-10-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%9B%B8%E5%86%8C/">相册</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%AF%95%E4%B8%9A%E7%85%A7/">毕业照</a>
-            
-              <a href="/tags/%E6%97%B6%E5%85%89/">时光</a>
-            
-              <a href="/tags/%E5%90%8C%E5%AD%A6%E6%83%85/">同学情</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">转载请注明出处</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/28/css%E5%88%9B%E5%BB%BA%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84%E6%96%B9%E6%B3%95/">
+                        <span class="hidden-mobile">css创建三角形的方法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "nWzKLL7CpVsbAR9401vnIm7n-gzGzoHsz",
+          app_key: "bmCQ2vq4qY4KnEeuQ1oGtKDj",
+          placeholder: "欢迎留言!",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -715,10 +559,10 @@ function getsum() &#123;
       }
 
       // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
+      if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/index.html');
+          var target = decodeURI('/2020/10/28/css%E5%AE%9E%E7%8E%B0%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA%E7%9C%81%E7%95%A5%E5%8F%B7/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -780,6 +624,31 @@ function getsum() &#123;
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -787,7 +656,7 @@ function getsum() &#123;
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "你以后有什么打算?-----好好工作,好好生活。&nbsp;",
+        "css实现文本溢出省略号&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 200,
@@ -802,6 +671,21 @@ function getsum() &#123;
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -815,6 +699,20 @@ function getsum() &#123;
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
