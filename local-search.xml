@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>冒泡排序</title>
+    <link href="/2020/10/29/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
+    <url>/2020/10/29/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    
+    <content type="html"><![CDATA[<h3 id="冒泡排序的理解"><a href="#冒泡排序的理解" class="headerlink" title="冒泡排序的理解"></a>冒泡排序的理解</h3><p>对数组[6,7,8,9,10]进行升序或者降序排列,可以用到冒泡排序的方法,通过相邻两个值的大小对比来进行排序</p><p>首先每个数字都需要进行一轮的对比,所以一共需要进行 arr.length-1 轮</p><p>第一轮第一个数字需要和另外四个数字进行对比,所以对比次数一共有四次,第二轮则只需要对比三次</p><p>通过轮述和次数可以得知我们需要用双重 for 循环(嵌套循环)来实现,外层循环控制轮数,内层循环控制次数</p><p>以此类推可以得知每轮的对比次数为 arr.length-1-i</p><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>var arr = [6,7,8,9,10];//外层循环控制轮数for(var i = 0; i&lt;arr.length-1;i++)&#123;    //内层循环控制次数    for(var j = 0;j&lt;arr.length-1-i;j++)&#123;        //借助第三个变量来交换两个数字的位置        let temp;        //通过判断相邻数字的大小来进行交换,大于小于的改变来控制升序或者降序排列        if(arr[j] &lt; arr[j+1])&#123;            temp = arr[j];            arr[j] = arr[j+1];            arr[j+1] = temp;        &#125;    &#125;&#125;console.log(arr);</code></pre><p>以上代码就实现了对 arr 数组的降序排列</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>css实现文本溢出省略号</title>
     <link href="/2020/10/28/css%E5%AE%9E%E7%8E%B0%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA%E7%9C%81%E7%95%A5%E5%8F%B7/"/>
     <url>/2020/10/28/css%E5%AE%9E%E7%8E%B0%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA%E7%9C%81%E7%95%A5%E5%8F%B7/</url>
