@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>记事本</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div id="container">
+      <!--头部区域-->
+      <div class="container-top">
+        <span class="wu">小吴记事本</span>
+        <input
+          type="text"
+          class="inp"
+          @keydown.enter="getinputvalue()"
+          v-model.trim="msg"
+        />
+      </div>
+      <!--主体区域-->
+      <div class="container-main">
+        <div class="top">
+          <span class="nowdo">正在进行({{doList.length}})</span>
+          <span class="tip"> tip:回车保存 </span>
+          <ul class="ul">
+            <li v-for="(item,index) in doList" class="list">
+              <input
+                type="checkbox"
+                @click.prevent="successful(item)"
+                class="check"
+              />
+              <input
+                v-if="index == isupdate"
+                type="text"
+                v-model="item.title"
+                @blur="update()"
+                class="update"
+              />
+              <span v-else @click="setupdate(index)">{{item.title}}</span>
+              <button @click="del(item)" class="btn">删除</button>
+            </li>
+          </ul>
+        </div>
+        <div class="foot">
+          <span class="haddo">已经完成({{sucList.length}})</span>
+          <ul class="ul">
+            <li v-for="item in sucList" class="list">
+              <input
+                type="checkbox"
+                @click.prevent="cancel(item)"
+                checked
+                class="check"
+              />
+              {{item.title}}
+              <button @click="del(item)" class="btn">删除</button>
+            </li>
+          </ul>
+        </div>
+        <p class="instructions">Copyright © 2020 todolist 圭木<br /></p>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

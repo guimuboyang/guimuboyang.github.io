@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  user-select: none;
+}
+body {
+  background: #cdcdcd;
+}
+/*设置头部样式*/
+.container-top {
+  width: 100%;
+  height: 50px;
+  background: #323232;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.container-top .wu {
+  color: #dddddd;
+  font-size: 24px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 50px;
+}
+.container-top .wu:hover {
+  color: white;
+}
+.container-top .inp {
+  width: 35%;
+  height: 25px;
+  outline-style: none;
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: 18px;
+  color: black;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.24),
+    0 1px 6px rgba(0, 0, 0, 0.45) inset;
+  margin-top: 10px;
+}
+/*设置主体样式*/
+.container-main {
+  width: 100%;
+  background: #cdcdcd;
+}
+.top {
+  width: 50%;
+  position: relative;
+  top: 30px;
+}
+.nowdo,
+.haddo {
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+}
+.foot {
+  width: 50%;
+  margin-top: 80px;
+}
+.ul {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.list {
+  position: relative;
+  width: 100%;
+  font-size: 20px;
+  height: 30px;
+  background: white;
+  border: 1px;
+  border-radius: 5px;
+  opacity: 0.8;
+  padding: 5px;
+  margin-top: 15px;
+}
+.list:hover {
+  background: salmon;
+  opacity: 1;
+}
+.btn {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  left: 120%;
+  border-radius: 5px;
+  outline-style: none;
+  border: 1px;
+}
+.check {
+  zoom: 120%;
+}
+.update {
+  font-size: 20px;
+  display: inline;
+  background: whitesmoke;
+  outline-style: none;
+}
+.instructions {
+  position: relative;
+  left: 50%;
+  display: inline;
+  top: 100px;
+  color: #66769b;
+  font-size: 13px;
+}
+.tip {
+  font-size: 12px;
+}
